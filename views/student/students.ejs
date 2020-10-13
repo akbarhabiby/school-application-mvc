@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Students</title>
+        <style>
+            body {
+                background-color: #ffffff;
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23009aff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Students</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/teachers">Teachers</a></li>
+            <li><a href="/subjects">Subjects</a></li>
+        </ul>
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach( el => { %> 
+                    <tr>
+                        <td> <%= el.id %> </td>
+                        <td> <%= el.first_name %> </td>
+                        <td> <%= el.last_name %> </td>
+                        <td> <%= el.email %> </td>
+                        <td><a href="/students/<%= el.id %>/edit">Edit</a> | <a href="/students/<%= el.id %>/delete">Delete</a></td>
+                    </tr>
+                <% }) %> 
+            </tbody>
+        </table>
+        <br>
+        <a href="/students/add">Add Student</a>
+    </body>
+</html>
